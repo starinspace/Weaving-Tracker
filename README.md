@@ -1,6 +1,8 @@
 # Weaving-Tracker
-
 **Weaving-Tracker** is a tool designed to help weavers track, and manage their weaving. It supports importing and exporting `.wif` (Weaving Information File) files, making it easy to import from other weaving software and works on most web-browsers.
+
+## News
+*v.1.1* - First version out
 
 ## Features
 
