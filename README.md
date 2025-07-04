@@ -17,7 +17,7 @@
 ## Getting Started
 
 Open the html-file in your browser.
-Use the sliders to adjust the number of threadles and threads.
+Use the sliders to adjust the number of treadles and threads.
 Start at the bottom if you want to do treadles manually.
 Import and export WIF files for convenience.
 Press Start to begin weaving (Press Stop to edit the pattern)
