@@ -11,6 +11,8 @@ You can [try it out online](https://weaving-tracker.blogspot.com/) now.
 + *v.1.2* - fixed a few bugs
 + *v.1.3* - added tap sound (can be muted) and changed the slider to a number counter, also removed the 200 row limit.
 + *v.1.4* - Added numbering, can be de-activated.
++ *v.1.5* - Added tieup.
++ *v.1.6* - Added weft color.
 
 ## Future plans
 
