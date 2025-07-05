@@ -16,6 +16,7 @@ You can [try it out online](https://weaving-tracker.blogspot.com/) now.
 
 + color input
 + scrolling when tapping the picks
++ liftplan option
 
 ## Features
 
