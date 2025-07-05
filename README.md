@@ -10,8 +10,8 @@
 
 ## Future plans
 
-color input
-scrolling when tapping the picks
++ color input
++ scrolling when tapping the picks
 
 ## Features
 
