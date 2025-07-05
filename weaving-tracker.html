@@ -3,18 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weaving Tracker v.1.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale="1.0">
+    <title>Weaving Tracker v.1.7</title>
     <style>
         /* General Styles */
         body {
             font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 20px;
             background-color: #f9f9f9;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
@@ -39,7 +39,7 @@
         .slider-label {
             font-size: 14px;
             color: #777;
-            width: 80px; /* Adjust width as needed */
+            width: 80px;
             text-align: left;
         }
 
@@ -81,31 +81,29 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 0px;
         }
 
         .number-label {
             font-size: 14px;
             color: #777;
-            width: 80px; /* Adjust width as needed */
+            width: 80px;
             text-align: left;
         }
 
         input[type="number"] {
-            width: 100%; /* Fill the container */
-			padding: 8px;
-			border: 1px solid #ddd;
-			border-radius: 4px;
-			text-align: center;
-			font-size: 14px;
-			background-color: transparent; /* Makes the box transparent */
-			color: #000; /* Ensures the number is visible (change if needed) */
-			border: 0px solid #ddd;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+            background-color: transparent;
+            color: #777;
         }
 
-
         /* Grid Styles */
-        #grid-container {
+        .grid-container {
             display: flex;
             flex-direction: column-reverse;
             margin-bottom: 20px;
@@ -128,7 +126,13 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
-			font-weight: bold;
+            font-weight: bold;
+        }
+
+        .color-cell {
+            width: 25px;
+            height: 25px;
+            box-sizing: border-box;
         }
 
         .selected {
@@ -137,127 +141,158 @@
 
         .marked {
             background-color: black;
-            color: white; /* Added to make text visible on black background */
+            color: white;
         }
 
         /* Modern Button Styles */
-#controls {
-    display: flex;
-    flex-direction: column; /* Stapla element vertikalt */
-    align-items: center; /* Centrera horisontellt */
-    gap: 15px;
-    max-width: 300px; /* Öka maxbredden för att rymma alla knappar */
-    width: 100%;
-    margin: 0 auto 20px auto;
-}
+        #controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 300px;
+            width: 100%;
+            margin: 0 auto 20px auto;
+        }
 
-.button-group {
-    display: flex; /* Visa knappar sida vid sida */
-    flex-wrap: wrap; /* Låt knappar brytas till nästa rad om det behövs */
-    gap: 10px; /* Mellanrum mellan knapparna */
-    justify-content: center; /* Centrera knapparna horisontellt */
-    width: 100%; /* Låt gruppen ta upp hela bredden */
-}
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            width: 100%;
+        }
 
+        #controls button,
+        #controls label {
+            padding: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
 
-#controls button,
-#controls label {
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
-}
+        #numbering-toggle {
+            width: 100%;
+            padding: 15px 24px;
+            font-size: 18px;
+        }
 
+        /* START/STOP Button Styles */
+        #start-stop {
+            width: 100%;
+            padding: 15px 24px;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-/* START/STOP Button Styles */
-#start-stop {
-    width: 100%; /* Lång knapp */
-    padding: 15px 24px;
-    font-size: 18px; /* Större text */
-    font-weight: bold; /* Fet text */
-}
+        #start-stop.start {
+            background-color: green;
+            color: white;
+        }
 
-#start-stop.start {
-    background-color: green;
-    color: white;
-}
+        #start-stop.stop {
+            background-color: red;
+            color: white;
+        }
 
-#start-stop.stop {
-    background-color: red;
-    color: white;
-}
+        #mute-toggle {
+            width: 100%;
+            padding: 15px 24px;
+            font-size: 18px;
+        }
 
-/* Mute Button Styles */
-#mute-toggle-container {
-    width: 100%; /* Samma bredd som start-knappen */
-}
+        /* Standard Button Styles */
+        button,
+        label[for="import"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            min-width: 100px;
+        }
 
-#mute-toggle {
-    width: 100%; /* Mute-knappen tar upp hela containerns bredd */
-    padding: 15px 24px; /* Samma padding som start-knappen */
-    font-size: 18px;
-}
+        button:hover,
+        label[for="import"]:hover {
+            background-color: #0056b3;
+        }
 
-
-/* Standard Button Styles (för övriga knappar) */
-button,
-label[for="import"] {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    flex: 1; /* För att fördela utrymmet jämnt mellan knapparna */
-    min-width: 100px; /* Minsta bredd för knappar */
-}
-
-button:hover,
-label[for="import"]:hover {
-    background-color: #0056b3;
-}
-
-input[type="file"] {
-    display: none;
-}
+        input[type="file"] {
+            display: none;
+        }
 
         /* How To Use Text Styles */
         .how-to-use {
-            text-align: center;
+            text-align: justify;
             color: #555;
             font-size: 14px;
             line-height: 1.6;
-            width: 80%;
+            width: 300px;
             margin: 0 auto;
             font-style: italic;
+        }
+
+        /* Grids Container */
+        .grids-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the content */
+        }
+
+        /* Weaving Grids Container */
+        .weaving-grids-container {
+            display: flex;
+            flex-direction: row; /*  Color and Weaving side by side */
+        }
+
+
+        #color-grid-container {
+            margin-left: 20px; /* Spacing between color grid and weaving grid */
+        }
+		
+		#tieup-grid-container {
+            margin-right: 50px; /* Spacing between color grid and weaving grid */
         }
     </style>
 </head>
 
 <body>
-    <h1 id="pattern-title">Weaving Tracker v.1.4</h1>
+    <h1 id="pattern-title">Weaving Tracker v.1.7</h1>
 
     <div class="settings-container">
         <div class="slider-group">
             <label for="threaddles" class="slider-label">Treadles:</label>
-            <input type="range" id="threaddles" min="1" max="20" value="6">
-            <span id="threaddles-value" class="slider-value">8</span>
+            <input type="range" id="threaddles" min="2" max="16" value="6">
+            <span id="threaddles-value" class="slider-value">6</span>
         </div>
 
-        <!-- Replaced slider with number input -->
+        <div class="slider-group">
+            <label for="shafts" class="slider-label">Shafts:</label>
+            <input type="range" id="shafts" min="2" max="20" value="4">
+            <span id="shafts-value" class="slider-value">4</span>
+        </div>
+
         <div class="number-input-group">
             <label for="rows" class="number-label">Picks:</label>
-            <input type="number" id="rows" value="20" min="1" max="999">
+            <input type="number" id="rows" value="10" min="1" max="999">
         </div>
     </div>
 
-    <div id="grid-container">
-        <!-- Grid will be generated here -->
+    <div class="grids-container">
+        <div id="tieup-grid-container" class="grid-container"></div>
+
+        <div class="weaving-grids-container">
+            <div id="weaving-grid-container" class="grid-container"></div>
+            <div id="color-grid-container" class="grid-container"></div>
+        </div>
+
     </div>
 
     <div id="controls">
@@ -266,52 +301,57 @@ input[type="file"] {
             <input type="file" id="import" accept=".wif,.txt">
             <label for="import">Import WIF</label>
             <button id="export">Export WIF</button>
-            <button id="add-rows">+</button>
-        </div>
-        <div id="mute-toggle-container">
-            <button id="mute-toggle">Mute</button>
-        </div>
-        <div id="numbering-toggle-container">
+            <button id="mute-toggle">Sound</button>
             <button id="numbering-toggle">Dots</button>
+            <button id="add-rows">+</button>
         </div>
     </div>
 
-    <div class="how-to-use">Getting Started:<br>Open the html-file in your browser.<br>
-        Use the sliders to adjust the number of treadles and threads.<br>
-        Start at the bottom if you want to do treadles manually.<br>
+    <div class="how-to-use"><center><b>Getting Started:</b></center>
+        Use the sliders to adjust the number of treadles and threads.
+        Start at the bottom if you want to do treadles manually.
         Import and export WIF files for convenience.<br>
-        Press Start to begin weaving (Press Stop to edit the pattern)<br>
-        Click the pattern to advance the green selector row by row (so you know where you
-        are).<br>This is under Apache-2.0 license. <a
-            href="https://github.com/starinspace/Weaving-Tracker">Github</a>
+        Press Start to begin weaving (Press Stop to edit the pattern)
+        Click the pattern to advance the green selector row by row (so you know where you are).<br>
+        You can also enable a tapping sound by clicking the Sound button. Numbering can be hidden and replaced with dots if you prefer.<br><br>
+        This is under Apache-2.0 license. <a href="https://github.com/starinspace/Weaving-Tracker">Github</a>
     </div>
 
     <script>
         const patternTitleDisplay = document.getElementById('pattern-title');
         const threaddlesInput = document.getElementById('threaddles');
+        const shaftsInput = document.getElementById('shafts');
         const rowsInput = document.getElementById('rows');
         const threaddlesValueDisplay = document.getElementById('threaddles-value');
-        const gridContainer = document.getElementById('grid-container');
+        const shaftsValueDisplay = document.getElementById('shafts-value');
+        const tieupGridContainer = document.getElementById('tieup-grid-container');
+        const weavingGridContainer = document.getElementById('weaving-grid-container');
+        const colorGridContainer = document.getElementById('color-grid-container');
         const startStopButton = document.getElementById('start-stop');
         const exportButton = document.getElementById('export');
         const importInput = document.getElementById('import');
         const addRowsButton = document.getElementById('add-rows');
         const muteToggleButton = document.getElementById('mute-toggle');
-        const numberingToggleButton = document.getElementById('numbering-toggle'); // New button
-        let isMuted = false;
-        let isNumbering = true; // New state
+        const numberingToggleButton = document.getElementById('numbering-toggle');
+        let isMuted = true;
+        let isNumbering = true;
 
         let threaddles = parseInt(threaddlesInput.value);
+        let shafts = parseInt(shaftsInput.value);
         let rows = parseInt(rowsInput.value);
-        let grid = [];
+        let weavingGrid = [];
+        let tieupGrid = [];
+        let colorGrid = [];
         let currentRow = 0;
         let isRunning = false;
         let currentPatternTitle = "Weaving Tracker";
+        let colorPalette = {};
+        let weftColors = {};
 
         function playClick() {
             if (isMuted) return;
 
-            const context = new (window.AudioContext || window.webkitAudioContext)();
+            const context = new(window.AudioContext || window.webkitAudioContext)();
             const oscillator = context.createOscillator();
             const gainNode = context.createGain();
 
@@ -332,65 +372,101 @@ input[type="file"] {
             displayElement.textContent = slider.value;
         }
 
-        function generateGrid() {
+        function generateGrid(gridContainer, grid, numRows, numCols, isTieup = false, isColor = false) {
             gridContainer.innerHTML = '';
-            grid = [];
+            grid.length = 0;
 
-            for (let i = 0; i < rows; i++) {
+            for (let i = 0; i < numRows; i++) {
                 const rowElement = document.createElement('div');
                 rowElement.classList.add('row');
                 const rowData = [];
-                for (let j = 0; j < threaddles; j++) {
+                for (let j = 0; j < numCols; j++) {
                     const cellElement = document.createElement('div');
-                    cellElement.classList.add('cell');
+                    cellElement.classList.add(isColor ? 'color-cell' : 'cell');
                     cellElement.dataset.row = i;
-                    cellElement.dataset.threaddle = j;
+                    cellElement.dataset.col = j;
                     cellElement.dataset.marked = false;
-                    cellElement.addEventListener('click', toggleMarked);
+                    if (!isColor) {
+                        cellElement.addEventListener('click', isTieup ? toggleTieupMarked : toggleWeavingMarked);
+                    }
                     rowElement.appendChild(cellElement);
-                    rowData.push(false);
+                    rowData.push(isColor ? "" : false);
                 }
                 gridContainer.appendChild(rowElement);
                 grid.push(rowData);
             }
 
-            gridContainer.removeEventListener('click', nextRow);
-            gridContainer.addEventListener('click', nextRow);
-            updateGridDisplay(); // Call updateGridDisplay after generating the grid
+            if (!isTieup && !isColor) {
+                gridContainer.removeEventListener('click', nextRow);
+                gridContainer.addEventListener('click', nextRow);
+            }
+            updateGridDisplay();
         }
 
+
         function updateThreaddles() {
-            const savedGridData = saveGridData();
+            const savedWeavingGridData = saveGridData(weavingGridContainer);
+            const savedTieupGridData = saveGridData(tieupGridContainer);
 
             threaddles = parseInt(threaddlesInput.value);
             updateSliderValue(threaddlesInput, threaddlesValueDisplay);
-            generateGrid();
+            generateGrid(weavingGridContainer, weavingGrid, rows, threaddles);
 
-            restoreGridData(savedGridData);
+            restoreGridData(weavingGridContainer, weavingGrid, savedWeavingGridData);
+            generateTieupGrid();
+
+            restoreGridData(tieupGridContainer, tieupGrid, savedTieupGridData);
+        }
+
+        function updateShafts() {
+            const savedTieupGridData = saveGridData(tieupGridContainer);
+
+            shafts = parseInt(shaftsInput.value);
+            updateSliderValue(shaftsInput, shaftsValueDisplay);
+            generateTieupGrid();
+
+            restoreGridData(tieupGridContainer, tieupGrid, savedTieupGridData);
         }
 
         function updateRows() {
-            const savedGridData = saveGridData();
-
+            const savedWeavingGridData = saveGridData(weavingGridContainer);
             rows = parseInt(rowsInput.value);
-            generateGrid();
-
-            restoreGridData(savedGridData);
+            generateGrid(weavingGridContainer, weavingGrid, rows, threaddles);
+            restoreGridData(weavingGridContainer, weavingGrid, savedWeavingGridData);
+            generateColorGrid();
         }
 
+        function generateTieupGrid() {
+            generateGrid(tieupGridContainer, tieupGrid, shafts, threaddles, true);
+        }
+
+        function generateColorGrid() {
+            generateGrid(colorGridContainer, colorGrid, rows, 1, false, true);
+            updateColorGridDisplay();
+        }
+
+
         updateSliderValue(threaddlesInput, threaddlesValueDisplay);
+        updateSliderValue(shaftsInput, shaftsValueDisplay);
 
         threaddlesInput.addEventListener('input', updateThreaddles);
+        shaftsInput.addEventListener('input', updateShafts);
         rowsInput.addEventListener('input', function() {
             rows = parseInt(this.value);
             updateRows();
         });
 
         function updateGridDisplay() {
-            const rowElements = document.querySelectorAll('#grid-container .row');
+            updateWeavingGridDisplay();
+            updateTieupGridDisplay();
+            updateColorGridDisplay();
+        }
+
+        function updateWeavingGridDisplay() {
+            const rowElements = document.querySelectorAll('#weaving-grid-container .row');
             rowElements.forEach((rowElement, rowIndex) => {
                 const cellElements = rowElement.querySelectorAll('.cell');
-                cellElements.forEach((cellElement, threaddleIndex) => {
+                cellElements.forEach((cellElement, colIndex) => {
                     if (rowIndex === currentRow) {
                         cellElement.classList.add('selected');
                     } else {
@@ -400,18 +476,37 @@ input[type="file"] {
                     const isMarked = cellElement.dataset.marked === 'true';
                     cellElement.classList.toggle('marked', isMarked);
 
-
                     if (isMarked && isNumbering) {
-                        cellElement.textContent = (threaddleIndex + 1).toString();
+                        cellElement.textContent = (colIndex + 1).toString();
                     } else {
-                        cellElement.textContent = ''; // Clear text if not numbered
+                        cellElement.textContent = '';
                     }
-
                 });
             });
-            updateCellDatasetRows();
+            updateWeavingCellDatasetRows();
         }
 
+        function updateTieupGridDisplay() {
+            const rowElements = document.querySelectorAll('#tieup-grid-container .row');
+            rowElements.forEach((rowElement, rowIndex) => {
+                const cellElements = rowElement.querySelectorAll('.cell');
+                cellElements.forEach((cellElement, colIndex) => {
+                    const isMarked = cellElement.dataset.marked === 'true';
+                    cellElement.classList.toggle('marked', isMarked);
+                    cellElement.textContent = '';
+                });
+            });
+        }
+
+        function updateColorGridDisplay() {
+            const rowElements = document.querySelectorAll('#color-grid-container .row');
+            rowElements.forEach((rowElement, rowIndex) => {
+                const cellElement = rowElement.querySelector('.color-cell');
+                if (cellElement) {
+                    cellElement.style.backgroundColor = colorGrid[rowIndex] ? colorGrid[rowIndex][0] || 'white' : 'white';
+                }
+            });
+        }
 
         function startStop() {
             isRunning = !isRunning;
@@ -425,24 +520,33 @@ input[type="file"] {
                 startStopButton.classList.add("start");
             }
 
-            const allCells = document.querySelectorAll('.cell');
-            allCells.forEach(cell => {
-                cell.removeEventListener('click', toggleMarked);
+            const allWeavingCells = document.querySelectorAll('#weaving-grid-container .cell');
+            allWeavingCells.forEach(cell => {
+                cell.removeEventListener('click', toggleWeavingMarked);
             });
-            if (isRunning) {
-                gridContainer.removeEventListener('click', nextRow)
-                gridContainer.addEventListener('click', nextRow);
-            }
 
+            const allTieupCells = document.querySelectorAll('#tieup-grid-container .cell');
+            allTieupCells.forEach(cell => {
+                cell.removeEventListener('click', toggleTieupMarked);
+            });
+
+
+            if (isRunning) {
+                weavingGridContainer.removeEventListener('click', nextRow)
+                weavingGridContainer.addEventListener('click', nextRow);
+            }
 
             if (isRunning) {
                 currentRow = 0;
                 updateGridDisplay();
             } else {
-                allCells.forEach(cell => {
-                    cell.addEventListener('click', toggleMarked);
+                allWeavingCells.forEach(cell => {
+                    cell.addEventListener('click', toggleWeavingMarked);
                 });
-                gridContainer.removeEventListener('click', nextRow)
+                allTieupCells.forEach(cell => {
+                    cell.addEventListener('click', toggleTieupMarked);
+                });
+                weavingGridContainer.removeEventListener('click', nextRow)
                 updateGridDisplay();
             }
         }
@@ -458,7 +562,14 @@ input[type="file"] {
             playClick();
         }
 
-        function toggleMarked(event) {
+        function toggleWeavingMarked(event) {
+            const cellElement = event.target;
+            const marked = cellElement.dataset.marked === 'true';
+            cellElement.dataset.marked = !marked;
+            updateGridDisplay();
+        }
+
+        function toggleTieupMarked(event) {
             const cellElement = event.target;
             const marked = cellElement.dataset.marked === 'true';
             cellElement.dataset.marked = !marked;
@@ -469,40 +580,48 @@ input[type="file"] {
             console.log("exportGrid function called.");
             let fileContent = "[WEAVING]\n";
             fileContent += "Treadles=" + threaddles + "\n";
+            fileContent += "Shafts=" + shafts + "\n";
             fileContent += "Threads=" + rows + "\n";
             fileContent += "\n[TEXT]\n";
             fileContent += "Title=" + currentPatternTitle + "\n";
-            fileContent += "\n[THREADING]\n";
 
-            for (let j = 0; j < threaddles; j++) {
-                let threadingValue = "";
-                for (let i = 0; i < rows; i++) {
+
+            fileContent += "\n[TIEUP]\n";
+            for (let i = 0; i < shafts; i++) {
+                let tieupValues = [];
+                for (let j = 0; j < threaddles; j++) {
                     const cellElement = document.querySelector(
-                        `#grid-container .row:nth-child(${rows - i}) .cell:nth-child(${j + 1})`);
+                        `#tieup-grid-container .row:nth-child(${shafts - i}) .cell:nth-child(${j + 1})`);
                     if (cellElement && cellElement.dataset.marked === 'true') {
-                        threadingValue = (i + 1).toString();
-                        break;
+                        tieupValues.push((j + 1).toString());
                     }
                 }
-                fileContent += (j + 1) + "=" + threadingValue + "\n";
+                fileContent += (i + 1) + "=" + tieupValues.join(",") + "\n";
             }
+
+            fileContent += "\n[THREADING]\n";
+            for (let j = 0; j < threaddles; j++) {
+                fileContent += (j + 1) + "=\n";
+            }
+
 
             fileContent += "\n[TREADLING]\n";
 
             for (let i = 0; i < rows; i++) {
-                let treadleNumber = "";
+                let treadleNumbers = [];
                 for (let j = 0; j < threaddles; j++) {
                     const cellElement = document.querySelector(
-                        `#grid-container .row:nth-child(${rows - i}) .cell:nth-child(${j + 1})`);
+                        `#weaving-grid-container .row:nth-child(${rows - i}) .cell:nth-child(${j + 1})`);
                     if (cellElement && cellElement.dataset.marked === 'true') {
-                        treadleNumber = (j + 1).toString();
-                        break;
+                        treadleNumbers.push((j + 1).toString());
                     }
                 }
-                fileContent += (i + 1) + "=" + treadleNumber + "\n";
+                fileContent += (i + 1) + "=" + treadleNumbers.join(",") + "\n";
             }
 
-            const blob = new Blob([fileContent], { type: 'text/plain' });
+            const blob = new Blob([fileContent], {
+                type: 'text/plain'
+            });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -532,70 +651,82 @@ input[type="file"] {
                     }
                 }
             }
+
             if (patternData["TEXT"] && patternData["TEXT"]["Title"]) {
                 currentPatternTitle = patternData["TEXT"]["Title"];
                 patternTitleDisplay.textContent = currentPatternTitle;
             }
+
+            // Parse Color Palette
+            if (patternData["COLOR PALETTE"] && patternData["COLOR TABLE"]) {
+                colorPalette = {};
+                for (const colorIndex in patternData["COLOR TABLE"]) {
+                    const colorValues = patternData["COLOR TABLE"][colorIndex].split(',').map(Number);
+                    colorPalette[colorIndex] = `rgb(${colorValues[0]}, ${colorValues[1]}, ${colorValues[2]})`;
+                }
+            }
+
+            // Parse Weft Colors
+            if (patternData["WEFT COLORS"]) {
+                weftColors = {};
+                for (const rowKey in patternData["WEFT COLORS"]) {
+                    weftColors[parseInt(rowKey)] = patternData["WEFT COLORS"][rowKey].split(',')[0];
+                }
+            }
+
+
             return patternData;
         }
 
-        function treadlingToBinary(treadlingData, numThreads) {
-            const binaryPattern = [];
-            for (const rowKey in treadlingData) {
-                let binaryRow = "";
-                for (let j = 1; j <= numThreads; j++) {
-                    binaryRow += (treadlingData[rowKey] === j.toString()) ? "1" : "0";
-                }
-                binaryPattern.push(binaryRow);
-            }
-            return binaryPattern;
-        }
 
         function importGrid(event) {
             const file = event.target.files[0];
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 const fileContent = e.target.result;
                 const fileType = file.name.split('.').pop().toLowerCase();
 
-                let importedRows, importedThreaddles;
+                let importedRows, importedThreaddles, importedShafts;
 
                 if (fileType === 'wif') {
                     try {
                         const patternData = parsePatternFile(fileContent);
+
+                        // Update title
                         if (patternData["TEXT"] && patternData["TEXT"]["Title"]) {
                             currentPatternTitle = patternData["TEXT"]["Title"];
                             patternTitleDisplay.textContent = currentPatternTitle;
                         }
 
-                        if (!patternData["WEAVING"] || !patternData["WEAVING"]["Treadles"]) {
-                            throw new Error("Number of treadles missing in [WEAVING] section.");
+                        // Update weaving settings
+                        if (patternData["WEAVING"]) {
+                            importedThreaddles = parseInt(patternData["WEAVING"]["Treadles"]);
+                            importedShafts = parseInt(patternData["WEAVING"]["Shafts"]);
+                            threaddlesInput.value = importedThreaddles;
+                            shaftsInput.value = importedShafts;
+                            updateSliderValue(threaddlesInput, threaddlesValueDisplay);
+                            updateSliderValue(shaftsInput, shaftsValueDisplay);
                         }
-                        if (!patternData["TREADLING"]) {
-                            throw new Error("Treadling data missing in [TREADLING] section.");
+
+                        // Rows are determined by the treadling section
+                        if (patternData["TREADLING"]) {
+                            importedRows = Object.keys(patternData["TREADLING"]).length;
+                            rowsInput.value = importedRows;
                         }
-
-                        importedThreaddles = parseInt(patternData["WEAVING"]["Treadles"]);
-                        importedRows = Object.keys(patternData["TREADLING"]).length;
-
-                        threaddlesInput.value = importedThreaddles;
-                        importedRows = Object.keys(patternData["TREADLING"]).length;
-
-                        threaddlesInput.value = importedThreaddles;
-                        rowsInput.value = importedRows;
-
-                        updateSliderValue(threaddlesInput, threaddlesValueDisplay);
 
                         updateRows();
-
                         updateThreaddles();
+                        updateShafts();
 
-                        const binaryTreadling = treadlingToBinary(patternData["TREADLING"], importedThreaddles);
-                        applyBinaryTreadlingToGrid(binaryTreadling);
+                        applyWIFTreadlingToGrid(patternData["TREADLING"]);
+                        applyWIFTieupToGrid(patternData["TIEUP"]);
+                        applyWIFColorToGrid();
+
                         alert("Grid imported successfully from WIF!");
                         return;
+
                     } catch (error) {
                         alert("Error parsing WIF file: " + error);
                         return;
@@ -608,62 +739,82 @@ input[type="file"] {
                     } catch (error) {
                         alert("Error parsing TXT file: " + error);
                         return;
-
                     }
-
                 }
-
-
             };
             reader.readAsText(file);
 
-            function applyBinaryTreadlingToGrid(binaryTreadling) {
-                const numRowsToApply = Math.min(binaryTreadling.length, rows);
-                console.log(
-                    `applyBinaryTreadlingToGrid: numRowsToApply = ${numRowsToApply}, binaryTreadling.length = ${binaryTreadling.length}, rows = ${rows}`);
-
-                for (let rowIndex = 0; rowIndex < numRowsToApply; rowIndex++) {
-                    const row = binaryTreadling[rowIndex];
-                    if (!row) {
-                        console.warn(`Treadling row ${rowIndex + 1} is undefined.`);
-                        continue;
-                    }
-
-                    if (rowIndex >= rows) {
-                        console.warn(`Treadling row ${rowIndex + 1} exceeds grid height.`);
-                        continue;
-                    }
-
-                    const rowElements = document.querySelectorAll(
-                        `#grid-container .row:nth-child(${rows - rowIndex}) .cell`);
-                    console.log(
-                        `  Row ${rowIndex + 1}: rowElements.length = ${rowElements.length}, threaddles = ${threaddles}`);
-
-                    for (let i = 0; i < threaddles; i++) {
-                        if (i >= rowElements.length) {
-                            console.warn(`    Treadle ${i + 1} exceeds grid width.`);
-                            break;
+            function applyWIFTreadlingToGrid(treadlingData) {
+                if (!treadlingData) return;
+                for (const rowKey in treadlingData) {
+                    const treadleNumbers = treadlingData[rowKey].split(',').map(Number);
+                    const rowIndex = parseInt(rowKey) - 1;
+                    if (rowIndex >= 0 && rowIndex < rows) {
+                        for (let treadleNumber of treadleNumbers) {
+                            const threaddleIndex = treadleNumber - 1;
+                            if (threaddleIndex >= 0 && threaddleIndex < threaddles) {
+                                const cellElement = document.querySelector(
+                                    `#weaving-grid-container .row:nth-child(${rows - rowIndex}) .cell:nth-child(${threaddleIndex + 1})`
+                                );
+                                if (cellElement) {
+                                    cellElement.dataset.marked = 'true';
+                                }
+                            }
                         }
-                        console.log(`    Cell ${i + 1}: binaryTreadling[${rowIndex}][${i}] = ${row[i]}`);
-                        rowElements[i].dataset.marked = row[i] === '1';
                     }
                 }
                 updateGridDisplay();
             }
 
+
+            function applyWIFTieupToGrid(tieupData) {
+                if (!tieupData) return;
+
+                for (const shaftKey in tieupData) {
+                    const treadleNumbers = tieupData[shaftKey].split(',').map(Number);
+                    const shaftIndex = parseInt(shaftKey) - 1;
+                    if (shaftIndex >= 0 && shaftIndex < shafts) {
+                        for (let treadleNumber of treadleNumbers) {
+                            const threaddleIndex = treadleNumber - 1;
+                            if (threaddleIndex >= 0 && threaddleIndex < threaddles) {
+                                const cellElement = document.querySelector(
+                                    `#tieup-grid-container .row:nth-child(${shafts - shaftIndex}) .cell:nth-child(${threaddleIndex + 1})`
+                                );
+                                if (cellElement) {
+                                    cellElement.dataset.marked = 'true';
+                                }
+                            }
+                        }
+                    }
+                }
+                updateGridDisplay();
+            }
+
+            function applyWIFColorToGrid() {
+                for (let i = 1; i <= rows; i++) {
+                    const colorIndex = weftColors[i];
+                    if (colorIndex && colorPalette[colorIndex]) {
+                        const color = colorPalette[colorIndex];
+                        if (colorGrid[rows - i]) {
+                            colorGrid[rows - i][0] = color;
+                        }
+                    }
+                }
+                updateColorGridDisplay();
+            }
+
+
             function parseAndApplyTxtGrid(fileContent) {
                 const lines = fileContent.trim().split('\n');
-
                 if (lines.length !== rows) {
                     throw new Error("Imported TXT file has incorrect number of rows.");
                 }
 
-
                 lines.forEach((line, rowIdx) => {
                     const bits = line.split('');
-                    if (bits.length != threaddles) throw new Error("Number of threaddles does not match")
+                    if (bits.length !== threaddles) throw new Error("Number of threaddles does not match");
                     const rowElements = document.querySelectorAll(
-                        `#grid-container .row:nth-child(${rows - rowIdx}) .cell`);
+                        `#weaving-grid-container .row:nth-child(${rows - rowIdx}) .cell`);
 
                     bits.forEach((bit, colIdx) => {
                         if (rowElements[colIdx])
@@ -672,15 +823,12 @@ input[type="file"] {
                 });
 
                 updateGridDisplay();
-
             }
-
-
         }
 
-        function saveGridData() {
+        function saveGridData(gridContainer) {
             const savedData = [];
-            const rowElements = document.querySelectorAll('#grid-container .row');
+            const rowElements = gridContainer.querySelectorAll('.row');
             rowElements.forEach((rowElement, rowIndex) => {
                 const rowData = [];
                 const cellElements = rowElement.querySelectorAll('.cell');
@@ -692,18 +840,18 @@ input[type="file"] {
             return savedData;
         }
 
-        function restoreGridData(savedData) {
+        function restoreGridData(gridContainer, grid, savedData) {
             if (!savedData || savedData.length === 0) return;
 
-            const rowElements = document.querySelectorAll('#grid-container .row');
+            const rowElements = gridContainer.querySelectorAll('.row');
             rowElements.forEach((rowElement, rowIndex) => {
                 if (rowIndex >= savedData.length) return;
 
                 const rowData = savedData[rowIndex];
                 const cellElements = rowElement.querySelectorAll('.cell');
-                cellElements.forEach((cellElement, cellIndex) => {
-                    if (cellIndex < rowData.length) {
-                        cellElement.dataset.marked = rowData[cellIndex];
+                cellElements.forEach((cellElement, colIndex) => {
+                    if (colIndex < rowData.length) {
+                        cellElement.dataset.marked = rowData[colIndex];
                     } else {
                         cellElement.dataset.marked = false;
                     }
@@ -712,8 +860,9 @@ input[type="file"] {
             updateGridDisplay();
         }
 
-        function updateCellDatasetRows() {
-            document.querySelectorAll(".row").forEach((row, index) => {
+
+        function updateWeavingCellDatasetRows() {
+            document.querySelectorAll("#weaving-grid-container .row").forEach((row, index) => {
                 row.querySelectorAll(".cell").forEach(cell => {
                     cell.dataset.row = rows - 1 - index;
                 })
@@ -724,7 +873,7 @@ input[type="file"] {
             rows++;
             rowsInput.value = rows;
 
-            const gridContainer = document.getElementById('grid-container');
+            const gridContainer = document.getElementById('weaving-grid-container');
             const rowElement = document.createElement('div');
             rowElement.classList.add('row');
 
@@ -734,31 +883,30 @@ input[type="file"] {
                 const cellElement = document.createElement('div');
                 cellElement.classList.add('cell');
                 cellElement.dataset.row = rows - 1;
-                cellElement.dataset.threaddle = j;
+                cellElement.dataset.col = j;
                 cellElement.dataset.marked = false;
-                cellElement.addEventListener('click', toggleMarked);
+                cellElement.addEventListener('click', toggleWeavingMarked);
                 rowElement.appendChild(cellElement);
                 rowData.push(false);
             }
 
             gridContainer.prepend(rowElement);
-            grid.unshift(rowData);
+            weavingGrid.unshift(rowData);
 
             updateGridDisplay()
         }
 
         function toggleMute() {
             isMuted = !isMuted;
-            muteToggleButton.textContent = isMuted ? "Unmute" : "Mute";
+            muteToggleButton.textContent = isMuted ? "Sound" : "Mute";
         }
 
 
         function toggleNumbering() {
             isNumbering = !isNumbering;
             numberingToggleButton.textContent = isNumbering ? "Dots" : "Numbering";
-            updateGridDisplay(); // Update the grid display when numbering is toggled
+            updateGridDisplay();
         }
-
 
 
         startStopButton.addEventListener('click', startStop);
@@ -766,9 +914,12 @@ input[type="file"] {
         importInput.addEventListener('change', importGrid);
         addRowsButton.addEventListener('click', addRows);
         muteToggleButton.addEventListener('click', toggleMute);
-        numberingToggleButton.addEventListener('click', toggleNumbering); // Event listener for the new button
+        numberingToggleButton.addEventListener('click', toggleNumbering);
 
-        generateGrid();
+        // Initial grid generation
+        generateTieupGrid();
+        generateGrid(weavingGridContainer, weavingGrid, rows, threaddles);
+        generateColorGrid();
     </script>
 </body>
 
