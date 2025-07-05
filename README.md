@@ -49,5 +49,6 @@ Web-browser (don't block javascript)
 
 Apache-2.0 license
 
-![bild](https://github.com/user-attachments/assets/b10e9fd7-c355-46ac-8031-40f51ef2187a)
+![bild](https://github.com/user-attachments/assets/c552b32b-a77d-4de7-a8b0-9046d7d531a6)
+
 
