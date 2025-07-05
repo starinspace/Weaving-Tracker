@@ -23,7 +23,7 @@
             text-align: center;
         }
 
-        /* Settings Styles */
+        /* Minimalistic Slider Styles */
         .settings-container {
             width: 300px;
             margin-bottom: 20px;
@@ -39,7 +39,7 @@
         .slider-label {
             font-size: 14px;
             color: #777;
-            width: 80px;
+            width: 80px; /* Adjust width as needed */
             text-align: left;
         }
 
@@ -76,31 +76,33 @@
             color: #777;
         }
 
+        /* Number Input Styles */
         .number-input-group {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .number-label {
             font-size: 14px;
             color: #777;
-            width: 80px;
+            width: 80px; /* Adjust width as needed */
             text-align: left;
         }
 
-input[type="number"] {
-     width: 100%; /* Fill the container */
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 14px;
-    background-color: transparent; /* Makes the box transparent */
-    color: #000; /* Ensures the number is visible (change if needed) */
-	border: 0px solid #ddd;
-}
+        input[type="number"] {
+            width: 100%; /* Fill the container */
+			padding: 8px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			text-align: center;
+			font-size: 14px;
+			background-color: transparent; /* Makes the box transparent */
+			color: #000; /* Ensures the number is visible (change if needed) */
+			border: 0px solid #ddd;
+        }
+
 
         /* Grid Styles */
         #grid-container {
@@ -109,7 +111,6 @@ input[type="number"] {
             margin-bottom: 20px;
             border: 1px solid #ccc;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow-x: auto; /* Enable horizontal scrolling */
         }
 
         .row {
@@ -128,11 +129,6 @@ input[type="number"] {
             justify-content: center;
             font-size: 20px;
 			font-weight: bold;
-            transition: width 0.3s ease; /* Smooth transition for width changes */
-        }
-
-        .cell.mobile-optimized {
-            width: calc(100vw / var(--threaddles)); /* Dynamic width calculation */
         }
 
         .selected {
@@ -141,98 +137,96 @@ input[type="number"] {
 
         .marked {
             background-color: black;
-            color: white;
+            color: white; /* Added to make text visible on black background */
         }
 
-        /* Controls Styles */
-        #controls {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            max-width: 300px;
-            width: 100%;
-            margin: 0 auto 20px auto;
-        }
+        /* Modern Button Styles */
+#controls {
+    display: flex;
+    flex-direction: column; /* Stapla element vertikalt */
+    align-items: center; /* Centrera horisontellt */
+    gap: 15px;
+    max-width: 300px; /* Öka maxbredden för att rymma alla knappar */
+    width: 100%;
+    margin: 0 auto 20px auto;
+}
 
-        .button-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            width: 100%;
-        }
+.button-group {
+    display: flex; /* Visa knappar sida vid sida */
+    flex-wrap: wrap; /* Låt knappar brytas till nästa rad om det behövs */
+    gap: 10px; /* Mellanrum mellan knapparna */
+    justify-content: center; /* Centrera knapparna horisontellt */
+    width: 100%; /* Låt gruppen ta upp hela bredden */
+}
 
-        #controls button,
-        #controls label {
-            padding: 10px;
-            font-size: 14px;
-            text-align: center;
-        }
 
-        #start-stop {
-            width: 100%;
-            padding: 15px 24px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-		
-		#numbering-toggle-container {
-            width: 100%;
-			}
-		
-		#numbering-toggle {
-            width: 100%;
-        }
+#controls button,
+#controls label {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
 
-        #start-stop.start {
-            background-color: green;
-            color: white;
-        }
 
-        #start-stop.stop {
-            background-color: red;
-            color: white;
-        }
+/* START/STOP Button Styles */
+#start-stop {
+    width: 100%; /* Lång knapp */
+    padding: 15px 24px;
+    font-size: 18px; /* Större text */
+    font-weight: bold; /* Fet text */
+}
 
-        #mute-toggle-container {
-            width: 100%;
-        }
+#start-stop.start {
+    background-color: green;
+    color: white;
+}
 
-        #mute-toggle {
-            width: 100%;
-            padding: 15px 24px;
-            font-size: 18px;
-        }
+#start-stop.stop {
+    background-color: red;
+    color: white;
+}
 
-        button,
-        label[for="import"] {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            flex: 1;
-            min-width: 100px;
-        }
+/* Mute Button Styles */
+#mute-toggle-container {
+    width: 100%; /* Samma bredd som start-knappen */
+}
 
-        button:hover,
-        label[for="import"]:hover {
-            background-color: #0056b3;
-        }
+#mute-toggle {
+    width: 100%; /* Mute-knappen tar upp hela containerns bredd */
+    padding: 15px 24px; /* Samma padding som start-knappen */
+    font-size: 18px;
+}
 
-        input[type="file"] {
-            display: none;
-        }
 
-        /* How To Use Styles */
+/* Standard Button Styles (för övriga knappar) */
+button,
+label[for="import"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    flex: 1; /* För att fördela utrymmet jämnt mellan knapparna */
+    min-width: 100px; /* Minsta bredd för knappar */
+}
+
+button:hover,
+label[for="import"]:hover {
+    background-color: #0056b3;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+        /* How To Use Text Styles */
         .how-to-use {
             text-align: center;
             color: #555;
@@ -251,13 +245,14 @@ input[type="number"] {
     <div class="settings-container">
         <div class="slider-group">
             <label for="threaddles" class="slider-label">Treadles:</label>
-            <input type="range" id="threaddles" min="1" max="20" value="4">
-            <span id="threaddles-value" class="slider-value">4</span>
+            <input type="range" id="threaddles" min="1" max="20" value="6">
+            <span id="threaddles-value" class="slider-value">8</span>
         </div>
 
+        <!-- Replaced slider with number input -->
         <div class="number-input-group">
             <label for="rows" class="number-label">Picks:</label>
-            <input type="number" id="rows" value="4" min="1" max="9999">
+            <input type="number" id="rows" value="20" min="1" max="999">
         </div>
     </div>
 
@@ -302,27 +297,33 @@ input[type="number"] {
         const importInput = document.getElementById('import');
         const addRowsButton = document.getElementById('add-rows');
         const muteToggleButton = document.getElementById('mute-toggle');
-        const numberingToggleButton = document.getElementById('numbering-toggle');
+        const numberingToggleButton = document.getElementById('numbering-toggle'); // New button
         let isMuted = false;
-        let isNumbering = true;
-        let isRunning = false; // Track if the weaving is running
+        let isNumbering = true; // New state
+
         let threaddles = parseInt(threaddlesInput.value);
         let rows = parseInt(rowsInput.value);
         let grid = [];
         let currentRow = 0;
+        let isRunning = false;
         let currentPatternTitle = "Weaving Tracker";
 
         function playClick() {
             if (isMuted) return;
+
             const context = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = context.createOscillator();
             const gainNode = context.createGain();
+
             oscillator.type = 'square';
             oscillator.frequency.setValueAtTime(1000, context.currentTime);
+
             gainNode.gain.setValueAtTime(0.1, context.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.001, context.currentTime + 0.1);
+
             oscillator.connect(gainNode);
             gainNode.connect(context.destination);
+
             oscillator.start();
             oscillator.stop(context.currentTime + 0.1);
         }
@@ -334,8 +335,6 @@ input[type="number"] {
         function generateGrid() {
             gridContainer.innerHTML = '';
             grid = [];
-
-            gridContainer.style.setProperty('--threaddles', threaddles); // Set CSS variable
 
             for (let i = 0; i < rows; i++) {
                 const rowElement = document.createElement('div');
@@ -357,28 +356,32 @@ input[type="number"] {
 
             gridContainer.removeEventListener('click', nextRow);
             gridContainer.addEventListener('click', nextRow);
-            updateGridDisplay();
+            updateGridDisplay(); // Call updateGridDisplay after generating the grid
         }
 
         function updateThreaddles() {
             const savedGridData = saveGridData();
+
             threaddles = parseInt(threaddlesInput.value);
             updateSliderValue(threaddlesInput, threaddlesValueDisplay);
             generateGrid();
+
             restoreGridData(savedGridData);
         }
 
         function updateRows() {
             const savedGridData = saveGridData();
+
             rows = parseInt(rowsInput.value);
             generateGrid();
+
             restoreGridData(savedGridData);
         }
 
         updateSliderValue(threaddlesInput, threaddlesValueDisplay);
 
         threaddlesInput.addEventListener('input', updateThreaddles);
-        rowsInput.addEventListener('input', function () {
+        rowsInput.addEventListener('input', function() {
             rows = parseInt(this.value);
             updateRows();
         });
@@ -388,12 +391,6 @@ input[type="number"] {
             rowElements.forEach((rowElement, rowIndex) => {
                 const cellElements = rowElement.querySelectorAll('.cell');
                 cellElements.forEach((cellElement, threaddleIndex) => {
-                    if (isRunning) {
-                        cellElement.classList.add('mobile-optimized');
-                    } else {
-                        cellElement.classList.remove('mobile-optimized');
-                    }
-
                     if (rowIndex === currentRow) {
                         cellElement.classList.add('selected');
                     } else {
@@ -403,15 +400,18 @@ input[type="number"] {
                     const isMarked = cellElement.dataset.marked === 'true';
                     cellElement.classList.toggle('marked', isMarked);
 
+
                     if (isMarked && isNumbering) {
                         cellElement.textContent = (threaddleIndex + 1).toString();
                     } else {
-                        cellElement.textContent = '';
+                        cellElement.textContent = ''; // Clear text if not numbered
                     }
+
                 });
             });
             updateCellDatasetRows();
         }
+
 
         function startStop() {
             isRunning = !isRunning;
@@ -419,19 +419,10 @@ input[type="number"] {
                 startStopButton.textContent = "STOP";
                 startStopButton.classList.remove("start");
                 startStopButton.classList.add("stop");
-                // Apply mobile optimization
-                const cells = document.querySelectorAll('.cell');
-                cells.forEach(cell => cell.classList.add('mobile-optimized'));
-                updateGridDisplay(); // Re-render the grid to apply mobile styles
             } else {
                 startStopButton.textContent = "START";
                 startStopButton.classList.remove("stop");
                 startStopButton.classList.add("start");
-                // Remove mobile optimization
-                const cells = document.querySelectorAll('.cell');
-                cells.forEach(cell => cell.classList.remove('mobile-optimized'));
-                updateGridDisplay(); // Re-render grid to revert to desktop styles
-
             }
 
             const allCells = document.querySelectorAll('.cell');
@@ -443,10 +434,10 @@ input[type="number"] {
                 gridContainer.addEventListener('click', nextRow);
             }
 
+
             if (isRunning) {
                 currentRow = 0;
                 updateGridDisplay();
-                scrollToCurrentRow(); // Scroll to the current row on start
             } else {
                 allCells.forEach(cell => {
                     cell.addEventListener('click', toggleMarked);
@@ -458,12 +449,12 @@ input[type="number"] {
 
         function nextRow() {
             if (!isRunning) return;
+
             currentRow++;
             if (currentRow >= rows) {
                 currentRow = 0;
             }
             updateGridDisplay();
-            scrollToCurrentRow(); // Scroll to the current row after each advance
             playClick();
         }
 
@@ -568,6 +559,7 @@ input[type="number"] {
             reader.onload = function (e) {
                 const fileContent = e.target.result;
                 const fileType = file.name.split('.').pop().toLowerCase();
+
                 let importedRows, importedThreaddles;
 
                 if (fileType === 'wif') {
@@ -577,19 +569,29 @@ input[type="number"] {
                             currentPatternTitle = patternData["TEXT"]["Title"];
                             patternTitleDisplay.textContent = currentPatternTitle;
                         }
+
                         if (!patternData["WEAVING"] || !patternData["WEAVING"]["Treadles"]) {
                             throw new Error("Number of treadles missing in [WEAVING] section.");
                         }
                         if (!patternData["TREADLING"]) {
                             throw new Error("Treadling data missing in [TREADLING] section.");
                         }
+
                         importedThreaddles = parseInt(patternData["WEAVING"]["Treadles"]);
                         importedRows = Object.keys(patternData["TREADLING"]).length;
+
+                        threaddlesInput.value = importedThreaddles;
+                        importedRows = Object.keys(patternData["TREADLING"]).length;
+
                         threaddlesInput.value = importedThreaddles;
                         rowsInput.value = importedRows;
+
                         updateSliderValue(threaddlesInput, threaddlesValueDisplay);
+
                         updateRows();
+
                         updateThreaddles();
+
                         const binaryTreadling = treadlingToBinary(patternData["TREADLING"], importedThreaddles);
                         applyBinaryTreadlingToGrid(binaryTreadling);
                         alert("Grid imported successfully from WIF!");
@@ -606,8 +608,12 @@ input[type="number"] {
                     } catch (error) {
                         alert("Error parsing TXT file: " + error);
                         return;
+
                     }
+
                 }
+
+
             };
             reader.readAsText(file);
 
@@ -615,20 +621,24 @@ input[type="number"] {
                 const numRowsToApply = Math.min(binaryTreadling.length, rows);
                 console.log(
                     `applyBinaryTreadlingToGrid: numRowsToApply = ${numRowsToApply}, binaryTreadling.length = ${binaryTreadling.length}, rows = ${rows}`);
+
                 for (let rowIndex = 0; rowIndex < numRowsToApply; rowIndex++) {
                     const row = binaryTreadling[rowIndex];
                     if (!row) {
                         console.warn(`Treadling row ${rowIndex + 1} is undefined.`);
                         continue;
                     }
+
                     if (rowIndex >= rows) {
                         console.warn(`Treadling row ${rowIndex + 1} exceeds grid height.`);
                         continue;
                     }
+
                     const rowElements = document.querySelectorAll(
                         `#grid-container .row:nth-child(${rows - rowIndex}) .cell`);
                     console.log(
                         `  Row ${rowIndex + 1}: rowElements.length = ${rowElements.length}, threaddles = ${threaddles}`);
+
                     for (let i = 0; i < threaddles; i++) {
                         if (i >= rowElements.length) {
                             console.warn(`    Treadle ${i + 1} exceeds grid width.`);
@@ -643,21 +653,29 @@ input[type="number"] {
 
             function parseAndApplyTxtGrid(fileContent) {
                 const lines = fileContent.trim().split('\n');
+
                 if (lines.length !== rows) {
                     throw new Error("Imported TXT file has incorrect number of rows.");
                 }
+
+
                 lines.forEach((line, rowIdx) => {
                     const bits = line.split('');
                     if (bits.length != threaddles) throw new Error("Number of threaddles does not match")
                     const rowElements = document.querySelectorAll(
                         `#grid-container .row:nth-child(${rows - rowIdx}) .cell`);
+
                     bits.forEach((bit, colIdx) => {
                         if (rowElements[colIdx])
                             rowElements[colIdx].dataset.marked = bit === '1';
                     });
                 });
+
                 updateGridDisplay();
+
             }
+
+
         }
 
         function saveGridData() {
@@ -676,9 +694,11 @@ input[type="number"] {
 
         function restoreGridData(savedData) {
             if (!savedData || savedData.length === 0) return;
+
             const rowElements = document.querySelectorAll('#grid-container .row');
             rowElements.forEach((rowElement, rowIndex) => {
                 if (rowIndex >= savedData.length) return;
+
                 const rowData = savedData[rowIndex];
                 const cellElements = rowElement.querySelectorAll('.cell');
                 cellElements.forEach((cellElement, cellIndex) => {
@@ -703,10 +723,13 @@ input[type="number"] {
         function addRows() {
             rows++;
             rowsInput.value = rows;
+
             const gridContainer = document.getElementById('grid-container');
             const rowElement = document.createElement('div');
             rowElement.classList.add('row');
+
             const rowData = [];
+
             for (let j = 0; j < threaddles; j++) {
                 const cellElement = document.createElement('div');
                 cellElement.classList.add('cell');
@@ -717,8 +740,10 @@ input[type="number"] {
                 rowElement.appendChild(cellElement);
                 rowData.push(false);
             }
+
             gridContainer.prepend(rowElement);
             grid.unshift(rowData);
+
             updateGridDisplay()
         }
 
@@ -727,32 +752,21 @@ input[type="number"] {
             muteToggleButton.textContent = isMuted ? "Unmute" : "Mute";
         }
 
+
         function toggleNumbering() {
             isNumbering = !isNumbering;
             numberingToggleButton.textContent = isNumbering ? "Dots" : "Numbering";
-            updateGridDisplay();
+            updateGridDisplay(); // Update the grid display when numbering is toggled
         }
 
-        function scrollToCurrentRow() {
-            const selectedRow = document.querySelector('.row:nth-child(' + (rows - currentRow) + ')');
-            if (selectedRow) {
-                const containerWidth = gridContainer.offsetWidth;
-                const rowWidth = selectedRow.offsetWidth;
-                const scrollLeft = selectedRow.offsetLeft - (containerWidth - rowWidth) / 2;
 
-                gridContainer.scrollTo({
-                    left: Math.max(0, scrollLeft), // Prevent scrolling past the beginning
-                    behavior: 'smooth'
-                });
-            }
-        }
 
         startStopButton.addEventListener('click', startStop);
         exportButton.addEventListener('click', exportGrid);
         importInput.addEventListener('change', importGrid);
         addRowsButton.addEventListener('click', addRows);
         muteToggleButton.addEventListener('click', toggleMute);
-        numberingToggleButton.addEventListener('click', toggleNumbering);
+        numberingToggleButton.addEventListener('click', toggleNumbering); // Event listener for the new button
 
         generateGrid();
     </script>
