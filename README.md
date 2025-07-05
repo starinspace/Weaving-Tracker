@@ -13,6 +13,7 @@ You can [try it out online](https://weaving-tracker.blogspot.com/) now.
 + *v.1.4* - Added numbering, can be de-activated.
 + *v.1.5* - Added tieup.
 + *v.1.6* - Added weft color.
++ *v.1.7* - Bugg-fixes.
 
 ## Future plans
 
